@@ -222,6 +222,30 @@ class Fun(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    # =====
+    # = Peensize =
+    # =====
+
+    @commands.command(aliases=['peen', 'penissize', 'penis'])
+    async def peensize(self, ctx, member : discord.Member):
+
+        size = randint(1, 20)
+
+        peen = ('=')
+
+        # ===== Embed =====
+        embed=discord.Embed(title='Peensize', description=f':carrot: Analyse the peen size of a hooman.', color=0x80ffff)
+        embed.set_author(name=f'{ctx.message.author.name}', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.add_field(name='Size', value=f'Hooman {member}\'s peensize: <{peen * size}3.', inline=False)
+        embed.set_footer(text='Suki Bot')
+        # ===============
+
+        await ctx.send(embed=embed)
+
+    # =====
+    # = Weeb =
+    # =====
+
     @commands.command(aliases=['weebify'])
     async def weeb(self, ctx, *, text):
 

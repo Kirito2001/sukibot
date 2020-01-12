@@ -14,6 +14,8 @@ from random import randint
 import asyncio
 import requests
 import json
+import traceback
+from traceback import *
 import TextToOwO
 from TextToOwO import *
 
@@ -21,7 +23,7 @@ from TextToOwO import *
 # = Prefix =
 # =====
 
-client = commands.Bot(command_prefix = 'sukdev!')
+client = commands.Bot(command_prefix = 'suk!')
 
 with open('settings.json') as f:
     data = json.load(f)
@@ -36,6 +38,8 @@ token = (data['token'])
 async def reload(ctx, extension):
     client.unload_extension(f'cogs.{extension}')
     client.load_extension(f'cogs.{extension}')
+
+    await ctx.send(f'Reloaded {extension}')
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
@@ -55,7 +59,7 @@ async def on_ready():
     print ('------------------------------------')
 
     # Sets the status to "Do Not Disturb", sets the game it is playing to "suk!help"
-    await client.change_presence(status=discord.Status.dnd, activity=discord.Game('use \'sukdev!help\'.'))
+    await client.change_presence(status=discord.Status.dnd, activity=discord.Game('use \'suk!help\'.'))
 
 # =====
 # = Ping =
